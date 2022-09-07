@@ -1,11 +1,16 @@
 import { VoteComponent } from './vote.component';
 
 describe('VoteComponent', () => {
-  it('should increment totalVotes when upvoted', () => {
-    // Arrange: Initialize system under test
-    let component = new VoteComponent();
+  let component: VoteComponent;
 
-    // Act: Calling a method / function
+  // Use beforeEach function from Jasmine
+  beforeEach(() => {
+    // Arrange: Initialize system under test
+    component = new VoteComponent();
+  });
+
+  it('should increment totalVotes when upvoted', () => {
+    // Act: Call a method / function
     component.upVote();
 
     // Assertion: Expectation to be met
@@ -13,8 +18,6 @@ describe('VoteComponent', () => {
   });
 
   it('should decrement totalVotes when downvoted', () => {
-    let component = new VoteComponent();
-
     component.downVote();
 
     expect(component.totalVotes).toBe(-1);
